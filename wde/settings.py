@@ -23,7 +23,7 @@ STATIC_DIR = os.path.join(BASE_DIR,"static")
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = <Your secret token/key>
+SECRET_KEY = '<Your secret token/key>' # replace with key on deployment
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -84,10 +84,10 @@ DATABASES = {
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '<mydbname>',
-        'HOST': '<myhost>.mysql.database.azure.com',
-        'USER': '<myusername>',
-        'PASSWORD': '<mypassward>',
+        'NAME': '<mydbname>', # relpace with database name at deployment
+        'HOST': '<myhost>.mysql.database.azure.com', #replace with valid host name on deployment
+        'USER': '<myusername>', # replace with your username on deployment
+        'PASSWORD': '<mypassward>', # replace with password on deployment
          'OPTIONS': {
             # 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             #'sslmode': "require",
