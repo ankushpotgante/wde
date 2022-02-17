@@ -1,4 +1,4 @@
-# Web Development Enironment
+# Web Development Environment
 
 This project will give you all the tools to develop a static web page efficiently.
 
