@@ -28,7 +28,7 @@ SECRET_KEY = '<Your secret token/key>' # replace with key on deployment
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['webdevenv.azurewebsites.net']
+ALLOWED_HOSTS = ['<your domain name>']
 
 
 # Application definition
@@ -88,10 +88,6 @@ DATABASES = {
         'HOST': '<myhost>.mysql.database.azure.com', #replace with valid host name on deployment
         'USER': '<myusername>', # replace with your username on deployment
         'PASSWORD': '<mypassward>', # replace with password on deployment
-         'OPTIONS': {
-            # 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            #'sslmode': "require",
-        },
     }
 }
 
