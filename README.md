@@ -2,8 +2,6 @@
 
 This project will give you all the tools to develop a static web page efficiently.
 
-Project Demo URL: https://webdevenv.azurewebsites.net
-
 You can write seperate code in individual blocks and get combined output
 
 ![Screenshot](/static/img/sc1.png)
