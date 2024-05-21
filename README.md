@@ -1,10 +1,12 @@
-# Web Development Environment
+# WDE
 
 ## Overview
 
-This project will give you all the tools to develop a static web page efficiently.
+WDE is a web based IDE like interface in which you can write HTML, CSS and JavaScript code, and get the output instantly.
 
-You can write seperate code in individual blocks and get combined output
+You can write seperate code in individual blocks and get the combined output.
+
+Follwoing are few screenshots for reference,
 
 ![Screenshot](/static/img/sc1.png)
 
