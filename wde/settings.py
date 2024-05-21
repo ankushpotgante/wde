@@ -11,24 +11,29 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR,"templates")
 STATIC_DIR = os.path.join(BASE_DIR,"static")
 
-
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '<Your secret token/key>' # replace with key on deployment
+SECRET_KEY = os.getenv("SECRET_KEY") # replace with key on deployment
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['<your domain name>']
+if os.getenv("DEBUG") == "True":
+    DEBUG = True
+
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', os.getenv('HOST')]
 
 
 # Application definition
@@ -78,18 +83,23 @@ WSGI_APPLICATION = 'wde.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': '<mydbname>', # relpace with database name at deployment
-        'HOST': '<myhost>.mysql.database.azure.com', #replace with valid host name on deployment
-        'USER': '<myusername>', # replace with your username on deployment
-        'PASSWORD': '<mypassward>', # replace with password on deployment
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.getenv("MYSQL_DB_NAME"),
+            'HOST': os.getenv("MYSQL_DB_HOST"), 
+            'USER': os.getenv("MYSQL_DB_USER"), 
+            'PASSWORD': os.getenv("MYSQL_DB_PASSWORD"), 
+        }
+    }
 
 
 # Password validation
@@ -138,6 +148,6 @@ STATICFILES_DIRS = [
 STATIC_DIR,
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGES = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
