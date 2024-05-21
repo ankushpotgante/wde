@@ -42,9 +42,7 @@ Javascript is also executed as per behaviour
     pip install -r requirements.txt
     ```
 
-## Usage
-
-1. First for migrating database go to dir where manage.py is located and execute
+4. For migrating database go to dir where manage.py is located and execute
 
      ```sh
     python manage.py makemigrations
@@ -54,11 +52,20 @@ Javascript is also executed as per behaviour
     python manage.py migrate
     ```
    
+5. Create superuser ( optional )
 
-2. Run server
+    ```sh
+    python manage.py createsuperuser
+    ```
+
+## Usage
+
+1. Run server
 
     ```sh
     python manage.py runserver
     ```
+
+2. Visit [http://localhost:8000](http:127.0.0.1:8000) in your browser.
 
 
